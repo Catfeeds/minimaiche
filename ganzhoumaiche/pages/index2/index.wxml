@@ -1,0 +1,46 @@
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item.photo}}" style='width:100%;height:100%;' class="slide-image" width="355" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="hot_data" wx:if="{{hotData}}" >
+    <view class="hot_information">
+      <view class="hot_message" wx:for="{{brand}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="gotopro">
+        <image src="{{item.photo}}"></image>
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+</view>
+<view class='index_title'>
+  <text>一成首付购新车</text>
+</view>
+<view class='index_commodity'>
+  <view class='commodity_big' wx:for="{{pro_list}}">
+  <navigator url="../product/detail?productId={{item.id}}">
+    <view class='commodity_content'>
+      <view class='commodity_top'>
+        <view class='top_left'>首付</view>
+        <view>{{item.price}}元</view>
+      </view>
+      <view class='commodity_period'>
+        <view>月供</view>
+        <view>{{item.gong}}</view>
+      </view>
+      <view class='commodity_presentation'>
+        <view>{{item.intro}}</view>
+      </view>
+      <view class='commodity_img'>
+        <image src='{{item.photo_x}}'></image>
+      </view>
+    </view>
+    </navigator>
+  </view>
+  
+</view>
+<view index_bottom_img>
+  <image wx:for="{{ggbottom}}" src='{{item.photo}}' mode="widthFix" style='width:100%;'></image>
+</view>

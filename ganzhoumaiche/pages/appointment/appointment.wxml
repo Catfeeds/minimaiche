@@ -1,0 +1,22 @@
+<view class="appoin_big">
+   <view class='appoin_title'>预约到店</view>
+   <form bindsubmit="bindFormSubmit">
+    <view class='appoin_name'>
+      <view>姓名</view>
+      <input name='name'></input>
+    </view>
+    <view class='appoin_name'>
+      <view>手机号</view>
+      <input name='phone'></input>
+    </view>
+    <view class='appoin_name'>
+      <view>预约车型/型号</view>
+      <input name='model'></input>
+    </view>
+    <view class='appoin_name'>
+      <view>预约时间</view>
+      <input name='time'></input>
+    </view>
+    <button form-type="submit" class='button'> 提交 </button>
+  </form>
+</view>

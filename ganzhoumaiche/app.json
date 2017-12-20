@@ -1,0 +1,56 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/navigation/navigation",
+    "pages/appointment/appointment",
+    "pages/callUp/callUp",
+    "pages/logs/logs",
+    "pages/brand/brand",
+    "pages/seek/seek",
+    "pages/news/news",
+    "pages/listdetail/listdetail",
+    "pages/product/detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "赣州买车",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar":{
+    "color": "#6e6d6b",
+    "selectedColor": "#D8B16D",
+    "borderStyle": "#C3C3C3",
+    "backgroundColor": "#fff",
+    "list":[
+      {
+        "selectedIconPath": "image/01-1.png",
+        "iconPath": "image/01.png",
+        "pagePath": "pages/callUp/callUp",
+        "backgrondColor": "#356596",
+        "text": "一键拨打"
+      },
+      {
+        "selectedIconPath": "image/02-1.png",
+        "iconPath": "image/02.png",
+        "pagePath": "pages/navigation/navigation",
+        "backgrondColor": "#356596",
+        "text": "一键导航"
+      },
+      {
+        "selectedIconPath": "image/03-1.png",
+        "iconPath": "image/03.png",
+        "pagePath": "pages/index/index",
+        "backgrondColor": "#356596",
+        "text": "公司公告"
+      },
+      {
+        "selectedIconPath": "image/04-1.png",
+        "iconPath": "image/04.png",
+        "pagePath": "pages/appointment/appointment",
+        "backgrondColor": "#356596",
+        "text": "预约到店"
+      }
+    ]
+  }
+}

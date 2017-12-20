@@ -1,0 +1,88 @@
+<view class='seek_tab' catchtap='tabClick'>
+  <view class="tab_big {{tabNum == 0?'active':''}}" data-id='0'>
+    <text data-id='0'>{{tabValue01}}</text>
+    <image src='../../image/05-1.png' wx:if="{{tabNum == 0}}" data-id='0'></image>
+    <image src='../../image/05.png' wx:else  data-id='0'></image>
+  </view>
+  <view class="tab_big {{tabNum == 1?'active':''}}" data-id='1'>
+    <text data-id='1'>{{tabValue02}}</text>
+    <image src='../../image/05-1.png' wx:if="{{tabNum == 1}}" data-id='1'></image>
+    <image src='../../image/05.png' wx:else data-id='1'></image>
+  </view>
+  <view class="tab_big {{tabNum == 2?'active':''}}" data-id='2'>
+    <text data-id='2'>{{tabValue03}}</text>
+    <image src='../../image/05-1.png' wx:if="{{tabNum == 2}}" data-id='2'></image>
+    <image src='../../image/05.png' wx:else data-id='2'></image>
+  </view> 
+</view>
+<view class='seek_lis'>
+<!--默认  -->
+  <view class="lis_content {{tabNum == 0 && lisHidden ? 'slidown':'slidup'}}" bindtap='lisClick' wx:if="{{lisHidden && tabNum == 0}}">
+    <view class='lis_big' data-id='one' data-value="默认排序">
+      <view class='lis_left' data-id='one' data-value="默认排序">默认排序</view>
+      <view class='lis_img' wx:if="{{lisNum == 'one' && tabNum == 0}}">
+        <image src='../../image/06.png'></image>
+      </view>
+    </view>
+    <view class='lis_big' data-id='two' data-value="最新发布">
+      <view class='lis_left' data-id='two' data-value="最新发布">最新发布</view>
+      <view class='lis_img' wx:if="{{lisNum == 'two' && tabNum == 0}}">
+        <image src='../../image/06.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- 品牌  -->
+  <view class="lis_content brand_content {{tabNum == 1 && lisHidden ? 'slidown':'slidup'}}" bindtap='brandClick' wx:if="{{lisHidden && tabNum == 1}}">
+    <view class='brand_big' data-id='brand01' wx:for="{},{}">
+      <view class="brand_left {{brandNum == index +'brand'?'brandActvie':''}}" data-id="{{index +'brand'}}"  data-value="宝马">宝马</view>
+    </view>
+  </view>
+  <!-- 价格  -->
+  <view class="lis_content {{tabNum == 2 && lisHidden ? 'slidown':'slidup'}}" bindtap='priceClick' wx:if="{{lisHidden && tabNum == 2}}">
+    <view class='lis_big' data-id='price01' data-value="最低价">
+      <view class='lis_left' data-id='price01' data-value="最低价">最低价</view>
+      <view class='lis_img' wx:if="{{pricNum == 'price01' && tabNum == 2}}">
+        <image src='../../image/06.png'></image>
+      </view>
+    </view>
+    <view class='lis_big' data-id='price02' data-value="最高价">
+      <view class='lis_left' data-id='price02' data-value="最高价">最高价</view>
+      <view class='lis_img' wx:if="{{pricNum == 'price02' && tabNum == 2}}">
+        <image src='../../image/06.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="fullbg {{lisHidden ?'fullopacity':''}}" bindtap="hidebg" wx:if="{{lisHidden}}"></view>
+<view class='seek_sousuo'>
+  <view class='seek_img'>
+   <image src='http://upload.chebaba.com/shop/goods_class/05660738104306181.jpg@343h'></image>
+  </view>
+  <view class='seek_input'>
+    <view class='input_big'>
+      <icon type='search' size='13' color='#666'></icon>
+      <input type='text' placeholder='搜索关键词'></input>
+    </view>
+  </view>
+</view>
+<view class='seek_title'>
+  优质二手车
+</view>
+<view class='seek_content'>
+  <view class='content_big' wx:for="{}" wx:key="{{index}}">
+    <view class='content_img'>
+      <image src='http://upload.chebaba.com/shop/goods_class/05660738005179800.jpg@343h'></image>
+    </view>
+    <view class='content_right' >
+      <view class='content_title'>东风启辰 启辰T70在售车型</view>
+      <view class='content_text'>服务项：整车质保 14天可退</view>
+      <view class='content_middle'>产商指导价11万</view>
+      <view class='content_bottom'>
+        <view class='content_shoufu'>首付：888元 <text style='margin-left:10rpx;'>月供1355元</text></view>
+        <view>
+          <button>立即购买</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
