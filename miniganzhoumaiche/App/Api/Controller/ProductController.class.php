@@ -707,4 +707,81 @@ class ProductController extends PublicController {
 		return $newArr;
 	}
 
+	public function dataList(){
+		$cid = intval($_REQUEST['cid']);
+		$bid = intval($_REQUEST['bid']);
+
+		if(!$cid){
+			echo json_encode(array('status'=>0,'err'=>'数据异常！'));
+			exit();
+		}
+		if($cid == 1){
+			$cname = "限时秒车团";
+		}else if($cid == 2){
+			$cname = "优质二手车";
+		}else if($cid == 3){
+			$cname = "一成首付购新车";
+		}else if($cid == 4){
+			$cname = "平时进口、豪车个性化定制";
+		}
+		$where = '1=1 AND pro_type=1 AND del=0 AND is_down=0 AND cid='.$cid;
+		$keyword = trim($_REQUEST['keyword'],'');
+		if($keyword){
+			$where .= ' AND name like "%'.$keyword.'%"';
+		}
+		if($bid){
+			$where .= ' AND brand_id='.$bid;
+		}
+		// dump($where);exit();
+		$search = $_REQUEST['search'];
+		$price = $_REQUEST['price'];
+		if($search){
+
+			if($search == '最新发布'){
+				$list = M('product')->where($where)->order('id desc')->select();
+			}else if($search == '默认排序'){
+				$list = M('product')->where($where)->order('sort desc,id desc')->select();
+			}
+
+		}else if($price){
+			if($price == '最低价'){
+				if($cid == 3){
+					$list = M('product')->where($where)->order('price asc')->select();
+				}else{
+					$list = M('product')->where($where)->order('price_yh asc')->select();
+				}
+				
+			}else if($price == '最高价'){
+				if($cid == 3){
+					$list = M('product')->where($where)->order('price desc')->select();
+				}else{
+					$list = M('product')->where($where)->order('price_yh desc')->select();
+				}
+			}
+		}else{
+			$list = M('product')->where($where)->order('sort desc,id desc')->select();
+		}
+		
+		if(!$list){
+			echo json_encode(array('status'=>0,'err'=>'暂无数据！','list'=>array()));
+			exit();
+		}
+		foreach ($list as $k => $v) {
+ 			$list[$k]['photo_x']=__DATAURL__.$v['photo_x'];
+ 			if($v['gong']){
+ 				$v['gong'] = strtoupper($v['gong']);
+ 				$list[$k]['gong'] = strstr($v['gong'], 'X', TRUE);
+ 			}
+ 			
+ 		}
+ 		$brand = M('brand')->field('name,id')->select();
+ 		$ggtop=M('guanggao')->where('position=3')->order('sort desc,id asc')->field('id,name,photo,type,action')->select();
+		foreach ($ggtop as $k => $v) {
+			$ggtop[$k]['photo']=__DATAURL__.$v['photo'];
+			$ggtop[$k]['name']=urlencode($v['name']);
+		}
+ 		echo json_encode(array('status'=>1,'list'=>$list,'cname'=>$cname,'brand'=>$brand,'ggtop'=>$ggtop));
+		exit();
+	}
+
 }

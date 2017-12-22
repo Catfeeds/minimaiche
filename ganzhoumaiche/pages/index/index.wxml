@@ -11,7 +11,7 @@
     <view class='title_left'>
       <text>限时秒车团</text>
     </view>
-    <navigator url='../seek/seek' class='title_right'>
+    <navigator url='../seek/seek?cid=1' class='title_right'>
       <text>查看更多>></text>
     </navigator>
   </view>
@@ -38,7 +38,7 @@
     <view class='title_left'>
       <text>优质二手车</text>
     </view>
-    <navigator url='../../image/seek/seek' class='title_right'>
+    <navigator url='../seek/seek?cid=2' class='title_right'>
       <text>查看更多>></text>
     </navigator>
   </view>
@@ -72,7 +72,7 @@
     <view class='title_left'>
       <text>一成首付购新车</text>
     </view>
-    <navigator  url='../seek/seek' class='title_right'>
+    <navigator  url='../seek/seek?cid=3' class='title_right'>
       <text>查看更多>></text>
     </navigator>
   </view>
@@ -106,7 +106,7 @@
     <view class='title_left'>
       <text>平时进口、豪车个性化定制</text>
     </view>
-    <navigator url='../seek/seek' class='title_right'>
+    <navigator url='../seek/seek?cid=4' class='title_right'>
       <text>查看更多>></text>
     </navigator>
   </view>
